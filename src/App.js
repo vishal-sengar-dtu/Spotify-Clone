@@ -30,13 +30,15 @@ function App() {
           user: user,
         })
       })
+
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: 'SET_PLAYLISTS',
+          playlists: playlists,
+        })
+      })
     }
-
-    console.log("I HAVE A TOKEN 👉", token)
   }, []);
-
-  console.log("🧑‍", user);
-  console.log("☎️‍", token);
 
   return (
     <div className="app">
